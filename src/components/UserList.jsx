@@ -38,7 +38,7 @@ const UserList = ({ users , deleteUser ,  getEditUser }) => {
           </thead>
           <tbody>
             {
-              users.map((user, idx) => {
+              users.map((user) => {
                 return <tr key={user.id} className="odd:bg-white  even:bg-gray-50 text-black border-gray-200">
                   <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                     {user.name}

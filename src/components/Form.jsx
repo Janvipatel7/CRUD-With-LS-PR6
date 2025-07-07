@@ -44,11 +44,11 @@ const StudentForm = ({ addUser, editUser, updateUser }) => {
             validationErrors.gender = "Please select your gender!";
         }
 
-        if (input.password.trim().length <= 8) {
+        if (input.password.trim() === "" || input.password.length < 8) {
             validationErrors.password = "Password must be at least 8 characters!";
         }
 
-        if (input.password !== input.confirmPassword) {
+        if (input.confirmPassword.trim() !== input.password) {
             validationErrors.confirmPassword = "Passwords do not match!";
         }
 
