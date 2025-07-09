@@ -73,98 +73,85 @@ const StudentForm = ({ addUser, editUser, updateUser }) => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-orange-200 to-red-500 px-4 py-10">
-            <div className="w-full max-w-6xl bg-white shadow-2xl rounded-2xl overflow-hidden flex flex-col lg:flex-row">
+        <div className="min-h-screen flex items-center justify-center px-4 py-6 bg-gradient-to-br from-[#FFE4D9] via-[#FFD0C0] to-[#FF725E]">
+            <div className="w-full max-w-6xl bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col lg:flex-row h-[90vh]">
 
 
-                <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 py-12">
-                    <h2 className="text-red-600 font-bold text-lg">StudentVilla</h2>
-                    <h1 className="text-4xl font-bold text-black mt-2">Student Form</h1>
-                    <p className="text-gray-700 mt-4">
-                        Hey student! Just fill in your basic details to complete your student registration.
+                <div className="w-full lg:w-1/2 px-6 py-6 overflow-y-auto scrollbar">
+                    <h2 className="text-red-500 font-bold text-sm">StudentVilla</h2>
+                    <h1 className="text-2xl font-bold text-gray-800 mt-1">Student Form</h1>
+                    <p className="text-gray-600 text-sm mt-1 mb-4">
+                        Fill in your details to complete registration.
                     </p>
 
-                    <form onSubmit={handleSubmit} className="mt-10 space-y-4 w-full max-w-xl">
-
-                        <div className='py-2'>
-                            <label htmlFor="name" className="block text-[20px] font-medium text-gray-700 mb-2">Name</label>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div>
+                            <label htmlFor="name" className="block text-sm text-gray-700 mb-1">Name</label>
                             <input id="name" value={input.name} onChange={handleChange}
-                                placeholder="Enter your name"
-                                className="w-full p-3 bg-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-400"
+                                placeholder="Enter name"
+                                className="w-full p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
                                 type="text" />
-                            {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+                            {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
                         </div>
-
-
-                        <div className='py-2'>
-                            <label htmlFor="email" className="block text-[20px] font-medium text-gray-700 mb-2">Email</label>
+                        <div>
+                            <label htmlFor="email" className="block text-sm text-gray-700 mb-1">Email</label>
                             <input id="email" value={input.email} onChange={handleChange}
-                                placeholder="Enter your email"
-                                className="w-full p-3 bg-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-400"
+                                placeholder="Enter email"
+                                className="w-full p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
                                 type="email" />
-                            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                            {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
                         </div>
-
-
-                        <div className='py-2'>
-                            <label htmlFor="course" className="block text-[20px] font-medium text-gray-700 mb-2">Course</label>
+                        <div>
+                            <label htmlFor="course" className="block text-sm text-gray-700 mb-1">Course</label>
                             <select id="course" value={input.course} onChange={handleChange}
-                                className="w-full p-3 bg-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-400">
+                                className="w-full p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400">
                                 <option value="">Select Course</option>
                                 <option value="1">Full Stack Development</option>
                                 <option value="2">UI & UX Design</option>
                                 <option value="3">AI & Machine Learning</option>
                             </select>
-                            {errors.course && <p className="text-red-500 text-sm">{errors.course}</p>}
+                            {errors.course && <p className="text-red-500 text-xs">{errors.course}</p>}
                         </div>
-
-
-                        <div className='py-2'>
-                            <label className="block text-[20px] font-medium text-gray-700 mb-2">Gender</label>
-                            <div className="flex gap-4">
-                                <label className="flex items-center gap-2">
-                                    <input type="radio" id="gender" name="gender" value="Male"
-                                        checked={input.gender === "Male"} onChange={handleChange}
-                                        className="accent-red-500" />
-                                    Male
-                                </label>
-                                <label className="flex items-center gap-2">
-                                    <input type="radio" id="gender" name="gender" value="Female"
-                                        checked={input.gender === "Female"} onChange={handleChange}
-                                        className="accent-red-500" />
-                                    Female
-                                </label>
+                        <div>
+                            <label className="block text-sm text-gray-700 mb-1">Gender</label>
+                            <div className="flex gap-4 text-sm">
+                                {["Male", "Female"].map((gender) => (
+                                    <label key={gender} className="flex items-center gap-1">
+                                        <input type="radio" name="gender" value={gender} checked={input.gender === gender}
+                                            onChange={handleChange} id="gender"
+                                            className="accent-red-500" />
+                                        {gender}
+                                    </label>
+                                ))}
                             </div>
-                            {errors.gender && <p className="text-red-500 text-sm">{errors.gender}</p>}
+                            {errors.gender && <p className="text-red-500 text-xs">{errors.gender}</p>}
                         </div>
-
-
-                        <div className='py-2'>
-                            <label htmlFor="password" className="block text-[20px] font-medium text-gray-700 mb-2">Password</label>
-                            <input id="password" value={input.password} onChange={handleChange}
-                                placeholder="Enter password" type="password"
-                                className="w-full p-3 bg-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-400" />
-                            {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+                        <div>
+                            <label htmlFor="password" className="block text-sm text-gray-700 mb-1">Password</label>
+                            <input id="password" type="password" value={input.password} onChange={handleChange}
+                                placeholder="Min 8 characters"
+                                className="w-full p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400" />
+                            {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
                         </div>
-
-                        <div className='py-2'>
-                            <label htmlFor="confirmPassword" className="block text-[20px] font-medium text-gray-700 mb-2">Confirm Password</label>
-                            <input id="confirmPassword" value={input.confirmPassword} onChange={handleChange}
-                                placeholder="Confirm your password" type="password"
-                                className="w-full p-3 bg-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-400" />
-                            {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
+                        <div>
+                            <label htmlFor="confirmPassword" className="block text-sm text-gray-700 mb-1">Confirm Password</label>
+                            <input id="confirmPassword" type="password" value={input.confirmPassword} onChange={handleChange}
+                                placeholder="Re-enter password"
+                                className="w-full p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400" />
+                            {errors.confirmPassword && <p className="text-red-500 text-xs">{errors.confirmPassword}</p>}
                         </div>
-
-
                         <button type="submit"
-                            className="  bg-red-500 text-white rounded-full px-7 py-2 hover:bg-red-600 transition w-fit">
+                            className="mt-2 bg-red-500 text-white text-sm rounded-full px-5 py-2 hover:bg-red-600 transition-all">
                             {editUser ? "Update" : "Submit"}
                         </button>
                     </form>
                 </div>
-                <div className="hidden lg:block w-full lg:w-1/2 bg-cover bg-center bg-no-repeat bg-image"></div>
+                <div className="hidden lg:flex w-1/2 bg-gray-100 items-center justify-center p-4">
+                    <img src="/Images/Forms-pana.png" alt="Form illustration" className="max-h-[85vh] object-contain" />
+                </div>
             </div>
         </div>
+
 
     );
 };

@@ -6,6 +6,6 @@
   outline: none;
 }
 
-.bg-image{
-  background-image: url('/Images/second.jpg');
+.scrollbar{
+  scrollbar-width: none;
 }
