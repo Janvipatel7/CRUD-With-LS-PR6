@@ -74,10 +74,10 @@ const StudentForm = ({ addUser, editUser, updateUser }) => {
 
     return (
         <div className="min-h-screen flex items-center justify-center px-4 py-6 bg-gradient-to-br from-[#FFE4D9] via-[#FFD0C0] to-[#FF725E]">
-            <div className="w-full max-w-6xl bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col lg:flex-row h-[90vh]">
+            <div className="w-full max-w-6xl bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col lg:flex-row h-[111vh]">
 
 
-                <div className="w-full lg:w-1/2 px-6 py-6 overflow-y-auto scrollbar">
+                <div className="w-full lg:w-1/2 px-6 py-6 ">
                     <h2 className="text-red-500 font-bold text-sm">StudentVilla</h2>
                     <h1 className="text-2xl font-bold text-gray-800 mt-1">Student Form</h1>
                     <p className="text-gray-600 text-sm mt-1 mb-4">
