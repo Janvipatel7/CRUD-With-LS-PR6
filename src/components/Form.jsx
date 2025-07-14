@@ -73,9 +73,8 @@ const StudentForm = ({ addUser, editUser, updateUser }) => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center px-4 py-6 bg-gradient-to-br from-[#FFE4D9] via-[#FFD0C0] to-[#FF725E]">
-            <div className="w-full max-w-6xl bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col lg:flex-row h-[111vh]">
-
+        <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-[#FFE4D9] via-[#FFD0C0] to-[#FF725E]">
+            <div className="w-full max-w-5xl bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col lg:flex-row h-[120vh]">
 
                 <div className="w-full lg:w-1/2 px-6 py-6 ">
                     <h2 className="text-red-500 font-bold text-sm">StudentVilla</h2>
@@ -86,25 +85,25 @@ const StudentForm = ({ addUser, editUser, updateUser }) => {
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
-                            <label htmlFor="name" className="block text-sm text-gray-700 mb-1">Name</label>
+                            <label htmlFor="name" className="block text-md font-semibold text-black mb-1">Name</label>
                             <input id="name" value={input.name} onChange={handleChange}
                                 placeholder="Enter name"
-                                className="w-full p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
+                                className="w-full mb-1 p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
                                 type="text" />
                             {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
                         </div>
                         <div>
-                            <label htmlFor="email" className="block text-sm text-gray-700 mb-1">Email</label>
+                            <label htmlFor="email" className="block text-md font-semibold text-black mb-1">Email</label>
                             <input id="email" value={input.email} onChange={handleChange}
                                 placeholder="Enter email"
-                                className="w-full p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
+                                className="w-full mb-1 p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
                                 type="email" />
                             {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
                         </div>
                         <div>
-                            <label htmlFor="course" className="block text-sm text-gray-700 mb-1">Course</label>
+                            <label htmlFor="course" className="block text-md font-semibold text-black mb-2">Course</label>
                             <select id="course" value={input.course} onChange={handleChange}
-                                className="w-full p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400">
+                                className="w-full mb-1 p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400">
                                 <option value="">Select Course</option>
                                 <option value="1">Full Stack Development</option>
                                 <option value="2">UI & UX Design</option>
@@ -113,8 +112,8 @@ const StudentForm = ({ addUser, editUser, updateUser }) => {
                             {errors.course && <p className="text-red-500 text-xs">{errors.course}</p>}
                         </div>
                         <div>
-                            <label className="block text-sm text-gray-700 mb-1">Gender</label>
-                            <div className="flex gap-4 text-sm">
+                            <label className="block text-md font-semibold text-black mb-1">Gender</label>
+                            <div className="flex gap-4 text-sm mb-1">
                                 {["Male", "Female"].map((gender) => (
                                     <label key={gender} className="flex items-center gap-1">
                                         <input type="radio" name="gender" value={gender} checked={input.gender === gender}
@@ -127,17 +126,17 @@ const StudentForm = ({ addUser, editUser, updateUser }) => {
                             {errors.gender && <p className="text-red-500 text-xs">{errors.gender}</p>}
                         </div>
                         <div>
-                            <label htmlFor="password" className="block text-sm text-gray-700 mb-1">Password</label>
+                            <label htmlFor="password" className="block text-md font-semibold text-black mb-1">Password</label>
                             <input id="password" type="password" value={input.password} onChange={handleChange}
                                 placeholder="Min 8 characters"
-                                className="w-full p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400" />
+                                className="w-full mb-1 p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400" />
                             {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
                         </div>
                         <div>
-                            <label htmlFor="confirmPassword" className="block text-sm text-gray-700 mb-1">Confirm Password</label>
+                            <label htmlFor="confirmPassword" className="block text-md font-semibold text-black mb-1">Confirm Password</label>
                             <input id="confirmPassword" type="password" value={input.confirmPassword} onChange={handleChange}
                                 placeholder="Re-enter password"
-                                className="w-full p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400" />
+                                className="w-full mb-1 p-2 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-400" />
                             {errors.confirmPassword && <p className="text-red-500 text-xs">{errors.confirmPassword}</p>}
                         </div>
                         <button type="submit"
