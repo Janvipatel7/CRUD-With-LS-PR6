@@ -74,7 +74,7 @@ const StudentForm = ({ addUser, editUser, updateUser }) => {
 
     return (
         <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-[#FFE4D9] via-[#FFD0C0] to-[#FF725E]">
-            <div className="w-full max-w-5xl bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col lg:flex-row h-[120vh]">
+            <div className="w-full max-w-5xl bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col lg:flex-row">
 
                 <div className="w-full lg:w-1/2 px-6 py-6 ">
                     <h2 className="text-red-500 font-bold text-sm">StudentVilla</h2>
