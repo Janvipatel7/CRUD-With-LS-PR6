@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { toast } from "react-toastify"
 
 const StudentForm = ({ addUser, editUser, updateUser }) => {
@@ -67,15 +67,11 @@ const StudentForm = ({ addUser, editUser, updateUser }) => {
         setInput({
             name: "", email: "", course: "", gender: "", password: "", confirmPassword: ""
         });
-
-
-
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-[#FFE4D9] via-[#FFD0C0] to-[#FF725E]">
             <div className="w-full max-w-5xl bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col lg:flex-row">
-
                 <div className="w-full lg:w-1/2 px-6 py-6 ">
                     <h2 className="text-red-500 font-bold text-sm">StudentVilla</h2>
                     <h1 className="text-2xl font-bold text-gray-800 mt-1">Student Form</h1>
@@ -83,7 +79,7 @@ const StudentForm = ({ addUser, editUser, updateUser }) => {
                         Fill in your details to complete registration.
                     </p>
 
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-4" >
                         <div>
                             <label htmlFor="name" className="block text-md font-semibold text-black mb-1">Name</label>
                             <input id="name" value={input.name} onChange={handleChange}
