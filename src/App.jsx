@@ -7,18 +7,31 @@ import 'remixicon/fonts/remixicon.css';
 const App = () => {
   const [users, setUsers] = useState([]);
   const [editUser, setEditUser] = useState(null);
+
+  useEffect(() => {
+    let oldUsers = JSON.parse(localStorage.getItem("userData")) || [];
+    setUsers(oldUsers);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("userData", JSON.stringify(users));
+  }, [users])
+
   const addUser = (user) => {
-    setUsers([...users, user])
+     if (editUser) {
+            updateUser(user); 
+        } else {
+            setUsers([...users, user]);
+        }
   }
 
   const deleteUser = (userId) => {
     const newUsers = users.filter((user) => {
       return user.id !== userId;
     })
+       setUsers(newUsers)
     if (userId == editUser.id) {
       setEditUser(null);
     }
-    setUsers(newUsers);
   }
 
   const updateUser = (editedUser) => {
@@ -36,13 +49,7 @@ const App = () => {
     setEditUser(user);
   }
 
-  useEffect(() => {
-    let oldUsers = JSON.parse(localStorage.getItem("userData")) || [];
-    setUsers(oldUsers);
-  }, []);
-  useEffect(() => {
-    localStorage.setItem("userData", JSON.stringify(users));
-  }, [users])
+  
   return (
     <>
       <Form addUser={addUser} deleteUser={deleteUser} editUser={editUser} updateUser={updateUser} />
